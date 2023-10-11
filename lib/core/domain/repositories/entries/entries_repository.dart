@@ -2,6 +2,7 @@ import 'package:bloc_ffff/core/data/remote_data_sources/entries_remote_data_sour
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../data/models/base_model.dart';
 import '../../../data/models/entries.dart';
 
 abstract class IEntriesRepository {
@@ -18,6 +19,14 @@ class EntriesRepository extends IEntriesRepository {
 
   EntriesRepository(this._remoteDataSource);
   @override
-  Future<Either<Exception, EntriesModel>> entries() =>
-      _remoteDataSource.entries();
+  Future<Either<BaseException, EntriesModel>> entries() async {
+    try {
+      return (await _remoteDataSource.entries()).fold(
+        (l) => throw l,
+        (r) => Right(r),
+      );
+    } on Exception catch (e) {
+      return Left(BaseException.onException(e));
+    }
+  }
 }

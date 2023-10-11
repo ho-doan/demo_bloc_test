@@ -8,8 +8,8 @@ part of 'i_api_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ApiClient implements ApiClient {
-  _ApiClient(
+class ApiClient implements IApiClient {
+  ApiClient(
     this._dio, {
     this.baseUrl,
   }) {

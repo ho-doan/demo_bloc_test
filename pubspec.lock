@@ -534,10 +534,11 @@ packages:
   retrofit_generator:
     dependency: "direct dev"
     description:
-      name: retrofit_generator
-      sha256: "7b5bdbb1ed740c204156d6d6fdae6de758140b18a1e9e26ec9e11f8ff286deef"
-      url: "https://pub.dev"
-    source: hosted
+      path: generator
+      ref: "feature/generator-option-class-name"
+      resolved-ref: bff9f3f410369e1315364bc416d6848fff8ea60a
+      url: "https://github.com/ho-doan/retrofit.dart.git"
+    source: git
     version: "8.0.0"
   shelf:
     dependency: transitive

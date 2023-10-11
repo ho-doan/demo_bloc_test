@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Builder(builder: (context) {
               return TextButton(
+                key: const Key('dialog'),
                 onPressed: () => showModalBottomSheet(
                   context: context,
                   builder: (ctx) => HomeBottomSheet(cubit: cubit),
@@ -102,6 +103,7 @@ class HomeBottomSheet extends StatelessWidget {
               if (state is HomeSuccess)
                 for (final entry in state.entries.entries)
                   GestureDetector(
+                    key: ObjectKey(entry),
                     onTap: () => cubit.delete(
                       state.entries.entries.indexOf(entry),
                     ),

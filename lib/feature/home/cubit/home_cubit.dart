@@ -1,3 +1,4 @@
+import 'package:bloc_ffff/core/data/models/base_model.dart';
 import 'package:bloc_ffff/core/data/models/entries.dart';
 import 'package:bloc_ffff/core/data/models/entry.dart';
 import 'package:bloc_ffff/core/domain/use_cases/entries_use_case.dart';
@@ -24,11 +25,11 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       final data = await _entriesUseCase.entries();
       data.fold(
-        (l) => emit(HomeFailure(l.toString())),
+        (l) => emit(HomeFailure(l.error)),
         (r) => emit(HomeSuccess(r)),
       );
     } catch (e) {
-      emit(HomeFailure(e.toString()));
+      emit(HomeFailure(BaseException.onObject(e).error));
     }
   }
 

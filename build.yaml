@@ -1,6 +1,9 @@
 targets:
   $default:
     builders:
+      retrofit_generator:
+        options:
+          class-name: ApiClient
       injectable_generator:injectable_builder:
         options:
           auto_register: true

@@ -5,13 +5,14 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:bloc_ffff/core/data/models/entries.dart' as _i5;
+import 'package:bloc_ffff/core/data/models/base_model.dart' as _i5;
+import 'package:bloc_ffff/core/data/models/entries.dart' as _i6;
 import 'package:bloc_ffff/core/domain/use_cases/entries_use_case.dart' as _i3;
-import 'package:bloc_ffff/feature/home/cubit/home_cubit.dart' as _i6;
+import 'package:bloc_ffff/feature/home/cubit/home_cubit.dart' as _i7;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i8;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i9;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:mockito/src/dummies.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -43,45 +44,46 @@ class MockEntriesUseCase extends _i1.Mock implements _i3.EntriesUseCase {
   }
 
   @override
-  _i4.Future<_i2.Either<Exception, _i5.EntriesModel>> entries() =>
+  _i4.Future<_i2.Either<_i5.BaseException, _i6.EntriesModel>> entries() =>
       (super.noSuchMethod(
         Invocation.method(
           #entries,
           [],
         ),
-        returnValue: _i4.Future<_i2.Either<Exception, _i5.EntriesModel>>.value(
-            _FakeEither_0<Exception, _i5.EntriesModel>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.BaseException, _i6.EntriesModel>>.value(
+                _FakeEither_0<_i5.BaseException, _i6.EntriesModel>(
           this,
           Invocation.method(
             #entries,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.Either<Exception, _i5.EntriesModel>>);
+      ) as _i4.Future<_i2.Either<_i5.BaseException, _i6.EntriesModel>>);
 }
 
 /// A class which mocks [HomeCubit].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHomeCubit extends _i1.Mock implements _i6.HomeCubit {
+class MockHomeCubit extends _i1.Mock implements _i7.HomeCubit {
   MockHomeCubit() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.HomeState get state => (super.noSuchMethod(
+  _i7.HomeState get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _i7.dummyValue<_i6.HomeState>(
+        returnValue: _i8.dummyValue<_i7.HomeState>(
           this,
           Invocation.getter(#state),
         ),
-      ) as _i6.HomeState);
+      ) as _i7.HomeState);
 
   @override
-  _i4.Stream<_i6.HomeState> get stream => (super.noSuchMethod(
+  _i4.Stream<_i7.HomeState> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i4.Stream<_i6.HomeState>.empty(),
-      ) as _i4.Stream<_i6.HomeState>);
+        returnValue: _i4.Stream<_i7.HomeState>.empty(),
+      ) as _i4.Stream<_i7.HomeState>);
 
   @override
   bool get isClosed => (super.noSuchMethod(
@@ -109,7 +111,7 @@ class MockHomeCubit extends _i1.Mock implements _i6.HomeCubit {
       );
 
   @override
-  void emit(_i6.HomeState? state) => super.noSuchMethod(
+  void emit(_i7.HomeState? state) => super.noSuchMethod(
         Invocation.method(
           #emit,
           [state],
@@ -118,7 +120,7 @@ class MockHomeCubit extends _i1.Mock implements _i6.HomeCubit {
       );
 
   @override
-  void onChange(_i8.Change<_i6.HomeState>? change) => super.noSuchMethod(
+  void onChange(_i9.Change<_i7.HomeState>? change) => super.noSuchMethod(
         Invocation.method(
           #onChange,
           [change],

@@ -3,7 +3,7 @@ import 'package:bloc_ffff/core/services/data_source/networks/i_api_client.dart';
 import 'package:dartz/dartz.dart';
 
 class EntriesRemoteDataSource {
-  final ApiClient _apiClient;
+  final IApiClient _apiClient;
 
   EntriesRemoteDataSource(this._apiClient);
 

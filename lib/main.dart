@@ -1,4 +1,3 @@
-import 'package:bloc_ffff/core/services/data_source/networks/i_api_client.dart';
 import 'package:bloc_ffff/core/services/dependency_injection/service_locator.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +7,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies(dio: ApiUtil.initDio());
+  configureDependencies();
   runApp(const MyApp());
 }
 

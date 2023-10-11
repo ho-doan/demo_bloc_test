@@ -15,10 +15,10 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../../../feature/detail/cubit/detail_cubit.dart' as _i8;
 import '../../../feature/home/cubit/home_cubit.dart' as _i7;
 import '../../data/models/entry.dart' as _i9;
-import '../../data/remote_data_sources/entries_remote_data_source.dart' as _i4;
+import '../../data/remote_data_sources/entries_remote_data_source.dart' as _i3;
 import '../../domain/repositories/entries/entries_repository.dart' as _i5;
 import '../../domain/use_cases/entries_use_case.dart' as _i6;
-import '../data_source/networks/i_api_client.dart' as _i3;
+import '../data_source/networks/i_api_client.dart' as _i4;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i1.GetIt $initGetIt(
@@ -31,11 +31,10 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.ApiUtil>(() => _i3.ApiUtil());
-  gh.factory<_i4.EntriesRemoteDataSource>(
-      () => _i4.EntriesRemoteDataSource(gh<_i3.ApiClient>()));
+  gh.factory<_i3.EntriesRemoteDataSource>(
+      () => _i3.EntriesRemoteDataSource(gh<_i4.IApiClient>()));
   gh.factory<_i5.EntriesRepository>(
-      () => _i5.EntriesRepository(gh<_i4.EntriesRemoteDataSource>()));
+      () => _i5.EntriesRepository(gh<_i3.EntriesRemoteDataSource>()));
   gh.factory<_i6.EntriesUseCase>(
       () => _i6.EntriesUseCase(gh<_i5.EntriesRepository>()));
   gh.factory<_i7.HomeCubit>(() => _i7.HomeCubit(gh<_i6.EntriesUseCase>()));
